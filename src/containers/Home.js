@@ -44,6 +44,7 @@ class Home extends React.Component {
             style={styles.inputName}
             keyboardType="email-address"
             autoCapitalize="none"
+            placeholder="Adresse email"
             value={this.state.email}
             onChangeText={value => {
               this.setState({ email: value });
@@ -51,6 +52,7 @@ class Home extends React.Component {
           />
           <TextInput
             secureTextEntry={true}
+            placeholder="Mot de passe"
             style={styles.inputPassword}
             onChangeText={value => {
               this.setState({ password: value });
@@ -58,6 +60,14 @@ class Home extends React.Component {
           />
           <TouchableOpacity style={styles.buttonPressed} onPress={this.onPress}>
             <Text style={styles.textButton}>Login</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.buttonPressed}
+            onPress={() => {
+              this.props.navigation.navigate("SignUp");
+            }}
+          >
+            <Text style={styles.textButton}>Sign Up</Text>
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
@@ -73,9 +83,9 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   image: {
-    height: 150,
-    width: 150,
-    // marginTop: 50,
+    height: 130,
+    width: 130,
+    // marginTop: -50,
     marginBottom: 50
   },
   title: {
@@ -109,7 +119,8 @@ const styles = StyleSheet.create({
     width: 150,
     borderRadius: 50,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    marginBottom: 20
   },
   textButton: {
     color: "#ED6565",

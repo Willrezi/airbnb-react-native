@@ -5,7 +5,7 @@ class RoomPage extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>This is the Location component</Text>
+        <Text>Appartement Paris</Text>
       </View>
     );
   }
