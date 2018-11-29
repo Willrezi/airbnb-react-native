@@ -1,5 +1,12 @@
 import React from "react";
-import { StyleSheet, Text, View, StatusBar, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  StatusBar,
+  ScrollView,
+  FlatList
+} from "react-native";
 import axios from "axios";
 import RoomCard from "../components/RoomCard";
 
@@ -29,20 +36,32 @@ class RoomPage extends React.Component {
         }
       })
       .then(response => {
-        this.setState({ rooms: response.data });
-        console.log(response.data);
+        this.setState({ rooms: response.data.rooms });
+        console.log(response.data.rooms);
       });
   }
 
   render() {
-    const { photos, price, ratingValue } = this.state;
+    const { rooms } = this.state;
+
     return (
-      <ScrollView>
-        <View style={styles.container}>
-          <StatusBar barStyle="light-content" />
-          <RoomCard picture={photos} price={price} ratingValue={ratingValue} />
-        </View>
-      </ScrollView>
+      <View style={styles.container}>
+        <StatusBar barStyle="light-content" />
+        <FlatList
+          data={rooms}
+          renderItem={({ item }) => (
+            <RoomCard
+              title={item.title}
+              photos={item.photos[0]}
+              price={item.price}
+              ratingValue={item.ratingValue}
+              reviews={item.reviews}
+              userPhoto={item.user.account.photos[0]}
+            />
+          )}
+          keyExtractor={(item, index) => index.toString()}
+        />
+      </View>
     );
   }
 }
