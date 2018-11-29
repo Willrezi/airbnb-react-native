@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  StatusBar,
-  ScrollView,
-  FlatList
-} from "react-native";
+import { StyleSheet, View, StatusBar, FlatList } from "react-native";
 import axios from "axios";
 import RoomCard from "../components/RoomCard";
 
@@ -18,6 +11,7 @@ class RoomPage extends React.Component {
 
   static navigationOptions = {
     title: "MonAirbnb",
+    headerBackTitle: null,
     headerStyle: {
       backgroundColor: "#ED6565"
     },

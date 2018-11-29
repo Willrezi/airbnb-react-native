@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, ImageBackground } from "react-native";
+import StarRating from "react-native-star-rating";
 
 class RoomCard extends React.Component {
   render() {
@@ -28,8 +29,15 @@ class RoomCard extends React.Component {
                 {title}
               </Text>
               <View style={{ flexDirection: "row" }}>
-                <Text>{ratingValue}</Text>
-                <Text>{reviews} reviews</Text>
+                <StarRating
+                  starStyle={{ fontSize: 15 }}
+                  disabled={false}
+                  maxStars={5}
+                  rating={ratingValue}
+                  fullStarColor={"#F4B73F"}
+                  emptyStarColor={"#9A9A9A"}
+                />
+                <Text style={styles.reviews}>{reviews} reviews</Text>
               </View>
             </View>
             <Image style={styles.avatar} source={{ uri: userPhoto }} />
@@ -65,7 +73,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     marginBottom: 5,
     borderWidth: 1,
-    backgroundColor: "black",
+    backgroundColor: "rgba(0,0,0,0.6)",
     height: 50,
     width: 60,
     justifyContent: "center",
@@ -80,8 +88,15 @@ const styles = StyleSheet.create({
   },
   textDescription: {
     fontSize: 15,
-    marginBottom: 5
+    marginTop: 10,
+    marginBottom: 5,
+    marginRight: 5
   },
+  reviews: {
+    color: "#9A9A9A",
+    paddingLeft: 5
+  },
+
   avatar: {
     borderRadius: 30,
     width: 60,
