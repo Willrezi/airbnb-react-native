@@ -5,15 +5,16 @@ import {
   View,
   Image,
   TouchableOpacity,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  StatusBar
 } from "react-native";
-import { TextInput, ScrollView } from "react-native-gesture-handler";
+import { TextInput } from "react-native-gesture-handler";
 import axios from "axios";
 
-class Home extends React.Component {
+class LogIn extends React.Component {
   state = {
-    email: "",
-    password: ""
+    email: "arno@airbnb-api.com",
+    password: "password01"
   };
 
   onPress = () => {
@@ -26,11 +27,10 @@ class Home extends React.Component {
         console.log(response.data);
         if (response.data && response.data.token) {
           this.props.navigation.navigate("RoomPage");
-          ({
-            token: response.data.token,
-            id: response.data._id
-          });
         }
+      })
+      .catch(error => {
+        console.log("error", err);
       });
   };
 
@@ -38,6 +38,7 @@ class Home extends React.Component {
     return (
       <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
         <View style={styles.container}>
+          <StatusBar barStyle="light-content" />
           <Image style={styles.image} source={require("../images/logo.png")} />
           <Text style={styles.title}>Welcome</Text>
           <TextInput
@@ -128,4 +129,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Home;
+export default LogIn;

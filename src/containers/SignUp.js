@@ -5,7 +5,8 @@ import {
   View,
   TextInput,
   TouchableOpacity,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  StatusBar
 } from "react-native";
 
 import axios from "axios";
@@ -41,6 +42,7 @@ class SignUp extends React.Component {
       <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
         <ScrollView>
           <View style={styles.container}>
+            <StatusBar barStyle="light-content" />
             <Text style={styles.title}>Create your account</Text>
             <TextInput
               style={styles.inputName}
