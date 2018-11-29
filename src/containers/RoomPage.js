@@ -40,7 +40,6 @@ class RoomPage extends React.Component {
 
     return (
       <View style={styles.container}>
-        <StatusBar barStyle="light-content" />
         <FlatList
           data={rooms}
           renderItem={({ item }) => (

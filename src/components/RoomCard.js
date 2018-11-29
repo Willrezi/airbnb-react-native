@@ -30,7 +30,7 @@ class RoomCard extends React.Component {
               </Text>
               <View style={{ flexDirection: "row" }}>
                 <StarRating
-                  starStyle={{ fontSize: 15 }}
+                  starSize={15}
                   disabled={false}
                   maxStars={5}
                   rating={ratingValue}

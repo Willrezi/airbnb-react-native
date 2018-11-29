@@ -1,4 +1,8 @@
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import {
+  createStackNavigator,
+  createBottomTabNavigator,
+  createAppContainer
+} from "react-navigation";
 
 import LogInScreen from "./src/containers/LogIn";
 import LocationScreen from "./src/containers/RoomPage";
@@ -7,9 +11,10 @@ import SignUpScreen from "./src/containers/SignUp";
 const AppNavigator = createStackNavigator({
   LogIn: {
     screen: LogInScreen,
-    navigationOptions: {
+    navigationOptions: () => ({
       header: null
-    }
+      //   headerBackTitle: null
+    })
   },
   SignUp: {
     screen: SignUpScreen
@@ -18,8 +23,20 @@ const AppNavigator = createStackNavigator({
     // }
   },
   RoomPage: {
-    screen: LocationScreen
+    screen: LocationScreen,
+    navigationOptions: () => ({
+      headerLeft: null
+    })
   }
 });
 
-export default createAppContainer(AppNavigator);
+const TabNavigator = createBottomTabNavigator({
+  RoomPage: {
+    screen: LocationScreen
+  },
+  LogIn: {
+    screen: LogInScreen
+  }
+});
+
+export default createAppContainer(AppNavigator, TabNavigator);

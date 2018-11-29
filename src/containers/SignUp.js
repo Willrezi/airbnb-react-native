@@ -42,7 +42,7 @@ class SignUp extends React.Component {
       <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
         <ScrollView>
           <View style={styles.container}>
-            <StatusBar barStyle="light-content" />
+            <StatusBar barStyle="default" />
             <Text style={styles.title}>Create your account</Text>
             <TextInput
               style={styles.inputName}
