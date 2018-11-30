@@ -27,9 +27,7 @@ class RoomCards extends React.Component {
         <View style={styles.card}>
           <View>
             <ImageBackground style={styles.image} source={{ uri: photos }}>
-              <View style={styles.boxPrice}>
-                <Text style={styles.price}>{price} €</Text>
-              </View>
+              <Text style={styles.price}>{price} €</Text>
             </ImageBackground>
           </View>
 
@@ -78,20 +76,14 @@ const styles = StyleSheet.create({
     height: 200,
     width: "100%"
   },
-  boxPrice: {
-    position: "absolute",
-    bottom: 0,
-    marginBottom: 5,
-    borderWidth: 1,
-    backgroundColor: "rgba(0,0,0,0.6)",
-    height: 50,
-    width: 60,
-    justifyContent: "center",
-    alignItems: "center"
-  },
   price: {
+    padding: 10,
+    position: "absolute",
+    bottom: 10,
+    left: 0,
     color: "white",
-    fontSize: 15
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    fontSize: 20
   },
   description: {
     flexDirection: "row"

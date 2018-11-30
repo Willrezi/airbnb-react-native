@@ -39,6 +39,7 @@ class Locations extends React.Component {
                 description={item.description}
                 photos={item.photos[0]}
                 price={item.price}
+                loc={item.loc}
                 ratingValue={item.ratingValue}
                 reviews={item.reviews}
                 userPhoto={item.user.account.photos[0]}
