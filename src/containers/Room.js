@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
   },
   mapView: {
     flex: 1,
-    height: 300,
+    height: 500,
     marginTop: 30
   }
 });
