@@ -1,8 +1,18 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, ImageBackground } from "react-native";
 import StarRating from "react-native-star-rating";
+import PropTypes from "prop-types";
 
-class RoomCard extends React.Component {
+class RoomCards extends React.Component {
+  static propTypes = {
+    title: PropTypes.string,
+    photos: PropTypes.string,
+    price: PropTypes.number,
+    ratingValue: PropTypes.number,
+    reviews: PropTypes.number,
+    userPhoto: PropTypes.string
+  };
+
   render() {
     const {
       title,
@@ -52,10 +62,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
+    // justifyContent: "center",
     paddingTop: 30,
-    paddingLeft: 30,
-    paddingRight: 30
+    marginLeft: 30,
+    marginRight: 30
   },
   card: {
     borderBottomWidth: 1,
@@ -104,4 +114,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default RoomCard;
+export default RoomCards;

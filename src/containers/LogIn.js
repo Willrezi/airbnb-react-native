@@ -26,7 +26,7 @@ class LogIn extends React.Component {
       .then(response => {
         console.log(response.data);
         if (response.data && response.data.token) {
-          this.props.navigation.navigate("RoomPage");
+          this.props.navigation.navigate("Locations");
         }
       })
       .catch(error => {
