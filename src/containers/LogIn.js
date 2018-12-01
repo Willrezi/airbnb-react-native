@@ -6,13 +6,15 @@ import {
   Image,
   TouchableOpacity,
   KeyboardAvoidingView,
-  StatusBar
+  StatusBar,
+  AsyncStorage
 } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import axios from "axios";
 
 class LogIn extends React.Component {
   state = {
+    isAuthenticated: false,
     email: "arno@airbnb-api.com",
     password: "password01"
   };
@@ -25,7 +27,13 @@ class LogIn extends React.Component {
       })
       .then(response => {
         console.log(response.data);
-        if (response.data && response.data.token) {
+        if (response.data.token) {
+          AsyncStorage.setItem("token", response.data.token).then(() => {
+            // authentifier l'utilisateur
+            this.setState({
+              isAuthenticated: true
+            });
+          });
           this.props.navigation.navigate("Locations");
         }
       })
@@ -35,6 +43,9 @@ class LogIn extends React.Component {
   };
 
   render() {
+    if (this.state.isAuthenticated === true) {
+      return this.props.navigation.navigate("Locations");
+    }
     return (
       <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
         <View style={styles.container}>
