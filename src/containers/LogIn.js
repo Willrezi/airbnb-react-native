@@ -15,8 +15,9 @@ import axios from "axios";
 class LogIn extends React.Component {
   state = {
     isAuthenticated: false,
-    email: "arno@airbnb-api.com",
-    password: "password01"
+    email: "",
+    //   "arno@airbnb-api.com"
+    password: ""
   };
 
   onPress = () => {
@@ -84,6 +85,15 @@ class LogIn extends React.Component {
         </View>
       </KeyboardAvoidingView>
     );
+  }
+  componentDidMount() {
+    AsyncStorage.getItem("token").then(value => {
+      if (value) {
+        this.setState({
+          isAuthenticated: true
+        });
+      }
+    });
   }
 }
 

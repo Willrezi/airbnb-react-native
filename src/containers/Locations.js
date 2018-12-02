@@ -1,5 +1,11 @@
 import React from "react";
-import { StyleSheet, View, FlatList, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  View,
+  FlatList,
+  TouchableOpacity,
+  StatusBar
+} from "react-native";
 import axios from "axios";
 import RoomCards from "../components/RoomCards";
 
@@ -25,6 +31,7 @@ class Locations extends React.Component {
 
     return (
       <View style={styles.container}>
+        <StatusBar barStyle="light-content" />
         <FlatList
           data={rooms}
           renderItem={({ item }) => (
