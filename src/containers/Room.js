@@ -64,7 +64,7 @@ class Room extends React.Component {
               latitude: params.loc[1],
               longitude: params.loc[0],
               latitudeDelta: 0.009,
-              longitudeDelta: 0.01
+              longitudeDelta: 0.009
             }}
           >
             <MapView.Marker
